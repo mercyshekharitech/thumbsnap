@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThumbSnap - FAQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #f3f4f6;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #374151;
+        }
+        .faq-answer {
+            padding: 1rem;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            color: #4b5563;
+            display: none;
+        }
+        .faq-question.active + .faq-answer {
+            display: block;
+        }
+        .faq-question svg {
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active svg {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="gradient-bg text-white shadow-lg">
+            <div class="container mx-auto px-4 py-6">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-youtube text-3xl text-red-500"></i>
+                        <h1 class="text-2xl font-bold">Thumb<span class="text-yellow-300">Snap</span></h1>
+                    </div>
+                    <div class="hidden md:flex space-x-4">
+                        <a href="Youtube ThumbSnap.html" class="hover:text-yellow-300 transition">Home</a>
+                        <a href="features.html" class="hover:text-yellow-300 transition">Features</a>
+                        <a href="faq.html" class="hover:text-yellow-300 transition">FAQ</a>
+                        <a href="about_us.html" class="hover:text-yellow-300 transition">About Us</a>
+                    </div>
+                    <button class="md:hidden text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content - FAQ Section -->
+        <main class="flex-grow container mx-auto px-4 py-8">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Find quick answers to the most common questions about ThumbSnap.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="mb-4">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is ThumbSnap?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        ThumbSnap is a free online tool that allows you to easily download high-quality thumbnail images from any YouTube video by simply pasting its URL.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="mb-4">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is ThumbSnap free to use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, ThumbSnap is completely free to use. There are no hidden costs, subscriptions, or registration required.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="mb-4">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do I need to register or sign up?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        No, you do not need to register or sign up to use ThumbSnap. It's designed for instant, hassle-free access.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="mb-4">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What thumbnail resolutions are available?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        ThumbSnap provides various resolutions, including MaxResDefault (1280x720), High Quality (480x360), Medium Quality (320x180), Standard Quality (640x480), and Default (120x90), among others.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="mb-4">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I download a thumbnail?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    }
+                    <div class="faq-answer">
+                        Simply paste the YouTube video URL into the input field on the homepage, click 'Get Thumbnails', and then select your desired resolution to download with a single click.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="mb-4">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Is it legal to download YouTube thumbnails?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Downloading YouTube thumbnails for personal use or fair use purposes (e.g., review, commentary) is generally acceptable. However, using them for commercial purposes without permission from the content creator may infringe on copyright.
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <h2 class="text-xl font-bold">Thumb<span class="text-yellow-300">Snap</span></h2>
+                        <p class="text-gray-400">The easiest way to download YouTube thumbnails</p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                    <p>&copy; 2025 ThumbSnap. All rights reserved.</p>
+                    <div class="mt-2 text-sm space-x-4">
+                        <a href="privacy_policy.html" class="hover:text-white transition">Privacy Policy</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="terms_of_service.html" class="hover:text-white transition">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            element.classList.toggle('active');
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

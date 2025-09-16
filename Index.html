@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThumbSnap - YouTube Thumbnail Downloader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .thumbnail-container:hover .download-overlay {
+            opacity: 1;
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="gradient-bg text-white shadow-lg">
+            <div class="container mx-auto px-4 py-6">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center space-x-2">
+                        <i class="fab fa-youtube text-3xl text-red-500"></i>
+                        <h1 class="text-2xl font-bold">Thumb<span class="text-yellow-300">Snap</span></h1>
+                    </div>
+                    <div class="hidden md:flex space-x-4">
+                        <a href="Youtube ThumbSnap.html" class="hover:text-yellow-300 transition">Home</a>
+                        <a href="features.html" class="hover:text-yellow-300 transition">Features</a>
+                        <a href="faq.html" class="hover:text-yellow-300 transition">FAQ</a>
+                        <a href="about_us.html" class="hover:text-yellow-300 transition">About Us</a>
+                    </div>
+                    <button class="md:hidden text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto px-4 py-8">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Download High-Quality YouTube Thumbnails</h2>
+                <p class="text-xl text-gray-600">Get thumbnails in HD quality with just one click. No registration required!</p>
+            </div>
+
+            <!-- AdSense Placeholder: Top Banner -->
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <div class="bg-gray-200 p-4 rounded-lg inline-block w-full max-w-4xl h-24 flex items-center justify-center text-gray-600 font-semibold">
+                    [AdSense Top Banner - Responsive]
+                </div>
+            </div>
+
+            <!-- Input Section -->
+            <div class="bg-white rounded-xl shadow-xl p-6 mb-12 transform transition hover:scale-[1.01]">
+                <div class="flex flex-col md:flex-row gap-4">
+                    <input 
+                        type="text" 
+                        id="videoUrl" 
+                        placeholder="Paste YouTube video URL here..." 
+                        class="flex-grow px-6 py-4 rounded-lg border-2 border-gray-200 focus:border-purple-500 focus:outline-none transition"
+                    >
+                    <button 
+                        id="downloadBtn" 
+                        class="gradient-bg text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition flex items-center justify-center space-x-2 pulse"
+                    >
+                        <i class="fas fa-download"></i>
+                        <span>Get Thumbnails</span>
+                    </button>
+                </div>
+                <div id="errorMsg" class="text-red-500 mt-2 text-sm hidden"></div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results" class="hidden">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Available Thumbnails</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Thumbnail items will be added here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- How to Use Section -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-[150px_1fr_150px] gap-4">
+                <!-- Left Side Ad Placeholder (Small) -->
+                <div class="hidden md:flex bg-gray-200 p-2 rounded-lg items-center justify-center text-gray-600 text-sm font-semibold min-h-[200px]">
+                    [Side Ad]
+                </div>
+
+                <!-- How to Use Content -->
+                <div>
+                    <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">How to Use ThumbSnap</h3>
+                    <div class="max-w-2xl mx-auto space-y-6 text-gray-700">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Paste YouTube Video URL</h4>
+                                <p>Go to YouTube, find the video whose thumbnail you want to download, and copy its URL from the browser's address bar. Then, paste this URL into the input field on our homepage.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Click "Get Thumbnails"</h4>
+                                <p>After pasting the URL, click the "Get Thumbnails" button. Our system will quickly process the link and fetch all available thumbnail resolutions for that video.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Choose and Download</h4>
+                                <p>You will see a variety of thumbnail sizes, from default to max resolution. Simply click the "Download" button next to your preferred thumbnail to save it directly to your device.</p>
+                            </div>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-8">It's that simple! Get high-quality YouTube thumbnails in just a few clicks, completely free.</p>
+                    </div>
+                </div>
+
+                <!-- Right Side Ad Placeholder (Small) -->
+                <div class="hidden md:flex bg-gray-200 p-2 rounded-lg items-center justify-center text-gray-600 text-sm font-semibold min-h-[200px]">
+                    [Side Ad]
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div id="features-section" class="mt-16">
+                <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">Why Choose ThumbSnap?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+                        <div class="text-purple-500 text-4xl mb-4">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Lightning Fast</h4>
+                        <p class="text-gray-600">Get thumbnails instantly without any delays or waiting time.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+                        <div class="text-purple-500 text-4xl mb-4">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Multiple Resolutions</h4>
+                        <p class="text-gray-600">Download thumbnails in different sizes to suit your needs.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition">
+                        <div class="text-purple-500 text-4xl mb-4">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">No Registration</h4>
+                        <p class="text-gray-600">Completely free to use with no sign-up required.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- AdSense Placeholder: Bottom Banner -->
+        <div class="max-w-4xl mx-auto text-center mb-12">
+            <div class="bg-gray-200 p-4 rounded-lg inline-block w-full max-w-4xl h-24 flex items-center justify-center text-gray-600 font-semibold">
+                [AdSense Bottom Banner - Responsive]
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <h2 class="text-xl font-bold">Thumb<span class="text-yellow-300">Snap</span></h2>
+                        <p class="text-gray-400">The easiest way to download YouTube thumbnails</p>
+                    </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                    <p>&copy; 2025 ThumbSnap. All rights reserved.</p>
+                    <div class="mt-2 text-sm space-x-4">
+                        <a href="privacy_policy.html" class="hover:text-white transition">Privacy Policy</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="terms_of_service.html" class="hover:text-white transition">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.getElementById('downloadBtn');
+            const videoUrlInput = document.getElementById('videoUrl');
+            const errorMsg = document.getElementById('errorMsg');
+            const resultsSection = document.getElementById('results');
+            const resultsContainer = resultsSection.querySelector('.grid');
+            
+            downloadBtn.addEventListener('click', fetchThumbnails);
+            videoUrlInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    fetchThumbnails();
+                }
+            });
+
+            function fetchThumbnails() {
+                const videoUrl = videoUrlInput.value.trim();
+                
+                // Reset UI
+                errorMsg.classList.add('hidden');
+                resultsSection.classList.add('hidden');
+                resultsContainer.innerHTML = '';
+                
+                // Validate URL
+                if (!videoUrl) {
+                    showError('Please enter a YouTube video URL');
+                    return;
+                }
+                
+                const videoId = extractVideoId(videoUrl);
+                if (!videoId) {
+                    showError('Invalid YouTube URL. Please enter a valid YouTube video URL.');
+                    return;
+                }
+                
+                // Show loading state
+                downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span> Processing...</span>';
+                downloadBtn.classList.remove('pulse');
+                
+                // Simulate API call (in a real app, you would call your backend here)
+                setTimeout(() => {
+                    displayThumbnails(videoId);
+                    downloadBtn.innerHTML = '<i class="fas fa-download"></i><span> Get Thumbnails</span>';
+                    downloadBtn.classList.add('pulse');
+                }, 1000);
+            }
+            
+            function extractVideoId(url) {
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+                const match = url.match(regExp);
+                return (match && match[2].length === 11) ? match[2] : null;
+            }
+            
+            function showError(message) {
+                errorMsg.textContent = message;
+                errorMsg.classList.remove('hidden');
+                videoUrlInput.focus();
+            }
+            
+            function displayThumbnails(videoId) {
+                const thumbnails = [
+                    {
+                        name: 'Max Resolution',
+                        url: `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`,
+                        resolution: '1280×720'
+                    },
+                    {
+                        name: 'High Quality',
+                        url: `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`,
+                        resolution: '480×360'
+                    },
+                    {
+                        name: 'Medium Quality',
+                        url: `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`,
+                        resolution: '320×180'
+                    },
+                    {
+                        name: 'Standard Quality',
+                        url: `https://img.youtube.com/vi/${videoId}/sddefault.jpg`,
+                        resolution: '640×480'
+                    },
+                    {
+                        name: 'Default',
+                        url: `https://img.youtube.com/vi/${videoId}/default.jpg`,
+                        resolution: '120×90'
+                    },
+                    {
+                        name: 'Start Image (1)',
+                        url: `https://img.youtube.com/vi/${videoId}/1.jpg`,
+                        resolution: '120×90'
+                    }
+                ];
+                
+                thumbnails.forEach(thumb => {
+                    const thumbItem = document.createElement('div');
+                    thumbItem.className = 'bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition thumbnail-container';
+                    thumbItem.innerHTML = `
+                        <div class="relative">
+                            <img src="${thumb.url}" alt="${thumb.name}" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/320x180?text=Thumbnail+Not+Available'">
+                            <div class="download-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition">
+                                <a href="${thumb.url}" download="youtube-thumbnail-${videoId}-${thumb.name.replace(' ', '-').toLowerCase()}.jpg" class="bg-white text-purple-600 px-4 py-2 rounded-lg font-semibold hover:bg-purple-600 hover:text-white transition flex items-center space-x-2">
+                                    <i class="fas fa-download"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h4 class="font-bold">${thumb.name}</h4>
+                            <p class="text-gray-600 text-sm">${thumb.resolution}</p>
+                        </div>
+                    `;
+                    resultsContainer.appendChild(thumbItem);
+                });
+                
+                resultsSection.classList.remove('hidden');
+                
+                // Smooth scroll to results
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
